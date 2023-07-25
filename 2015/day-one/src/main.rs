@@ -7,22 +7,7 @@ For example:
 ()()) causes him to enter the basement at character position 5.
 What is the position of the character that causes Santa to first enter the basement?
 */
-// PART 1
-// fn solve(string: &str) -> i64 {
-//     let mut floor = 0;
-//
-//     for ch in string.split("") {
-//         if ch == "(" {
-//             floor += 1;
-//         } else if ch == ")"{
-//             floor -= 1;
-//         }
-//     }
-//
-//
-//     floor
-// }
-// PART 2
+
 fn solve(string: &str) -> i64 {
     let mut floor = 0;
     let mut char_position = 0;
