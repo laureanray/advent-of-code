@@ -13,16 +13,28 @@ fn parse_str(input: &str) -> (u64, u64, u64) {
     (l, w, h)
 }
 
+fn get_ribbon_rqd(l: u64, w: u64, h: u64) -> u64 {
+    let mut vector = vec![l, w, h];
+    vector.sort();
+    let smallest_face = (vector[0] * 2) + (vector[1] * 2);
+    let volume = l * w * h;
+    smallest_face + volume
+}
+
 fn main() {
     let input = include_str!("../input.txt");
     let mut res = 0;
     for line in input.split("\n") {
         if line.len() > 0 {
             let (l, w, h) = parse_str(line);
-            res = res + get_area_rqd(l, w, h);
+            res = res + get_ribbon_rqd(l, w, h);
         }
     }
 
     dbg!(res);
 }
 
+#[test]
+fn test_get_ribbon_rqd() {
+    assert_eq!(get_ribbon_rqd(2, 3, 4), 34);
+}
